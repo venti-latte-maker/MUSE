@@ -1,16 +1,15 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿namespace Muse.Api.Models;
 
-namespace Muse.Api.Models
+public class User
 {
-    public class User
-    {
-        public int Id { get; set; }
-        public string username { get; set; }
-        public string email { get; set; }
-        public string passwordHash { get; set; }
-        public string role { get; set; }
-        public DateTime createdAt { get; set; }
-        public DateTime updatedAt { get; set; }
+    public Guid Id { get; set; }
+    public required string Email { get; set; }
+    public required string Username { get; set; }
+    public string PasswordHash { get; set; } = string.Empty;
+    public string Role { get; set; } = "User";
+    public DateTime CreatedAt { get; init; } = DateTime.UtcNow;
+    public DateTime UpdatedAt { get; set; } = DateTime.UtcNow;
 
-    }
+    public ICollection<Playlist> CreatedPlaylists { get; set; } = new List<Playlist>();
+    public ICollection<SavedPlaylist> SavedPlaylists { get; set; } = new List<SavedPlaylist>();
 }
