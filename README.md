@@ -7,3 +7,22 @@ Additionally, we provide personalized recommendations by looking at the music an
 
 ## User Flow
 <img width="722" height="1282" alt="User Flow Structure" src="https://github.com/user-attachments/assets/4aa85f53-84b6-468c-8d1a-cbb779baffba" />
+
+## Setup Instruction
+### Setting up Database
+1. Make sure `dotnet ef` is installed  
+```shell
+dotnet tool install --global dotnet-ef
+```
+2. To update the database  
+```shell
+dotnet ef database update
+```
+
+### Database URL String
+Make sure you run the following commands  
+```shell
+dotnet user-secrets init
+dotnet user-secrets set "ConnectionStrings:DefaultConnection" "Server=localhost,1433;Database=MuseDb;User Id=sa;Password=<yout_password_here>;TrustServerCertificate=True;"
+```
+**Note** : Make sure to change the username and password in the above connection string.  
