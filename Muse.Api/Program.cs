@@ -1,3 +1,5 @@
+// IMPORTANT : Microsoft.OpenApi has been downgraded to Version 2.3.9 due to versioning errors
+// https://github.com/dotnet/aspnetcore/issues/64317
 
 namespace Muse.Api
 {
@@ -8,8 +10,8 @@ namespace Muse.Api
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
-
             builder.Services.AddControllers();
+            
             // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
             builder.Services.AddOpenApi();
 
